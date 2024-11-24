@@ -1,9 +1,10 @@
 import smtplib
 from email.message import EmailMessage
+import os
 
-PASSWORD = "your_app_password_here"
-SENDER = "sender_email@gmail.com"
-RECEIVER = "receiver_email@gmail.com"
+PASSWORD = os.getenv("EMAIL_PASSWORD", "your_password_here")
+SENDER = os.getenv("EMAIL_SENDER", "your_email_here@gmail.com")
+RECEIVER = os.getenv("EMAIL_RECEIVER", "receiver_email_here@gmail.com")
 
 def send_email(image_path):
     message = EmailMessage()
